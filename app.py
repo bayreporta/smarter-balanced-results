@@ -1,11 +1,12 @@
 import csv
+import json
 from flask import Flask
 from flask import render_template
 app = Flask(__name__)
 
 ## GET CSV ##
 def get_csv():
-	csv_path = './static/la-riots-deaths.csv' 
+	csv_path = './static/data.csv' 
 	csv_file = open(csv_path, 'rb')
 	csv_obj = csv.DictReader(csv_file)
 	csv_list = list(csv_obj)
@@ -15,17 +16,24 @@ def get_csv():
 @app.route('/')
 def index():
 	template = 'index.html'
-	object_list = get_csv()
-	return render_template(template, object_list=object_list)
+	raw_data = get_csv()
+	return render_template(template, home=raw_data[0], data=json.dumps(raw_data[0]))
+
+## SEARCH PAGE ##
+@app.route('/search')
+def search():
+	template = 'search.html'
+	raw_data = get_csv()
+	return render_template(template, data=raw_data)
 
 ## DETAIL PAGE ##
-@app.route('/<row_id>')
-def detail(row_id):
+@app.route('/<entity_slug>')
+def detail(entity_slug):
 	template = 'detail.html'
-	object_list = get_csv()
-	for row in object_list:
-		if row['id'] == row_id:
-			return render_template(template, object=row)
+	raw_data = get_csv()
+	for row in raw_data:
+		if row['entity_slug'] == entity_slug:
+			return render_template(template, object=row, data=json.dumps(row))
 	abort(404)
 
 

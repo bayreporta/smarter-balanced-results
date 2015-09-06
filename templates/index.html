@@ -1,70 +1,301 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
+        <meta charset="utf-8"><title>California Smarter Balanced Test Results | EdSource</title></meta>
+        <meta name="description" content="A non-profit journalism website reporting on key education issues in California and beyond."></meta>
+        <meta name="tags" content="education news, california education, non-profit news, common core, local control funding formula, k-12 education, smarter balanced"></meta> 
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="http://edsource.org/wp-content/css/smarter-balanced.css">
+        <link rel="stylesheet" type="text/css" href="http://edsource.org/wp-content/css/charts/stacked-column-percent.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+        <script src="http://edsource.org/wp-content/js/d3.tip.v0.6.3.js" charset="utf-8"></script>
+        <script type="text/javascript" src="http://edsource.org/wp-content/js/colorbrewer.js"></script>
+        <script type="text/javascript" src="http://edsource.org/wp-content/js/charts/stacked-column-percent-jinja.js"></script>
     </head>
     <body>
-    	<div id="map" style="width:100%; height:300px;"></div>
-        <h1>Deaths during the L.A. riots</h1>
-        <table border=1 cellpadding=7>
-        	<tr>
-        		<th>Name</th>
-        		<th>Date</th>
-                <th>Type</th>
-                <th>Address</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Race</th>
-        	</tr>
-			{% for obj in object_list %}
-			<tr>
-				<td><a href="{{obj.id}}">{{obj.full_name}}</a></td>
-				<td>{{obj.date}}</td>
-				<td>{{obj.type}}</td>
-				<td>{{obj.address}}</td>
-				<td>{{obj.age}}</td>
-				<td>{{obj.gender}}</td>
-				<td>{{obj.race}}</td>
-			</tr>
-			{% endfor %}
-		</table>
-    </body>
-    <script type="text/javascript">
-        var map = L.map('map').setView([34.055, -118.35], 9);
-        var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: 'Data, imagery and map information provided by <a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>,<a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.',
-            subdomains: ['otile1','otile2','otile3','otile4']
-        });
-        map.addLayer(mapquestLayer);
-         var data = {
-              "type": "FeatureCollection",
-              "features": [
-                {% for obj in object_list %}
-                {
-                  "type": "Feature",
-                  "properties": {
-                    "full_name": "{{ obj.full_name }}",
-                    "id": "{{ obj.id }}"
-                  },
-                  "geometry": {
-                    "type": "Point",
-                    "coordinates": [{{ obj.x }}, {{ obj.y }}]
-                  }
-                }{% if not loop.last %},{% endif %}
-                {% endfor %}
-              ]
-            };
-            var dataLayer = L.geoJson(data, {
-                onEachFeature: function(feature, layer) {
-                    layer.bindPopup(
-                        '<a href="' + feature.properties.id + '/">' +
-                            feature.properties.full_name +
-                        '</a>'
-                    );
-                }
-            });
-            map.addLayer(dataLayer);
+        <div id="rs-contain">
+            <section id="rs-header">
+                <div class="rs-site">
+                    <h2><a href="http://edsource.org">EdSource</a></h2>
+                </div>
+                <div><h2><a href="/">Smarter Balanced Test Results</a></h2></div>
+                <div>
+                    <a href="/search">Search Districts</a>
+                    <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
+                </div>
+            </section>
+            <div id="rs-body">
+                <section class="overview home">
+                    <div>
+                        <h1>California Smarted Balanced Results: 2014-15</h1>
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget lacus quam. Suspendisse luctus arcu nec nisl ultricies, quis sodales felis mollis. Mauris quis leo eu augue hendrerit fermentum ac sed sapien. Mauris dignissim mattis ligula eu maximus. Sed consequat metus nec eleifend interdum. Fusce dapibus nibh eget augue finibus commodo. Donec bibendum ligula at mi consequat, ac sagittis metus consectetur. Aliquam tempus dolor ornare ex sodales sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam ac lorem odio. Nulla facilisi. Curabitur eleifend velit commodo tristique tincidunt. Ut feugiat lectus et enim scelerisque consectetur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi eu sodales sapien. Sed in nunc eget lorem condimentum eleifend vitae ac nulla.</p>
+                    </div>       
+                </section>
+                <section class="overview">
+                     <div><h2>{{home.entity_name}}</h2></div> 
+                     <table id="demo-table" cellpadding=7>
+                        <thead>
+                            <th></th>
+                            <th></th>
+                        </thead>
+                        <tr>
+                            <td>Enrollment</td>
+                            <td>{{(home.total_enrollment_pretty)}}</td>
+                        </tr>
+                        <tr>
+                            <td>Test-takers</td>
+                            <td>{{((home.total_students_tested|int/home.total_enrollment|int)*100)|round|int}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Free and Reduced Lunch</td>
+                            <td>{{((home.pct_frpm|float)*100)|round|int}}%</td>
+                        </tr>
+                        <tr>
+                            <td>English Learners</td>
+                            <td>{{((home.pct_el|float)*100)|round|int}}%</td>
+                        </tr>
+                    </table>
+
+
+                </section>
+                <hr>
+                <!-- OVERALL PRO  -->
+                <section class="stacked over-pro-grade">
+                    <div>
+                        <h3>All Students: All Grades Levels</h3>
+                    </div>
+                    <div id="stacked-chart-1" class="stacked-per-column"></div>
+                     <table cellpadding=7>
+                        <thead>
+                            <th>Subject</th>
+                            <th>Standards Exceeded</th>
+                            <th>Standards Met</th>
+                            <th>Standards Nearly Met</th>
+                            <th>Standards Not Met</th>
+                        </thead>
+                        <tr>
+                            <td>English</td>
+                            <td>{{((home.pct_standard_exceeded_eng|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_eng|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_nearly_met_eng|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_not_met_eng|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Math</td>
+                            <td>{{((home.pct_standard_exceeded_math|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_math|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_nearly_met_math|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_not_met_math|float * 100)|int)}}%</td>        
+                        </tr>
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-1', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, null, null, {{ data|safe }}, 0, true);
+                    </script>
+                    
+                </section>
+                <hr>
+                <!-- OVERALL PRO GRADES  -->
+                <section class="stacked over-pro-grades">
+                    <div>
+                        <h3>All Students: Grade Level Breakdown</h3>
+                    </div>
+                    <div id="stacked-chart-2" class="stacked-per-column"></div>
+                    <div id="stacked-chart-3" class="stacked-per-column"></div>
+                    <table class="table-fix" cellpadding=7>
+                        <thead>
+                            <th>Grade</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                         <tr>
+                            <td>Grade 3</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_3rd|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_3rd|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_3rd|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_3rd|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 4</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_4th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_4th|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_4th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_4th|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 5</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_5th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_5th|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_5th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_5th|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 6</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_6th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_6th|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_6th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_6th|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 7</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_7th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_7th|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_7th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_7th|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 8</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_8th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_8th|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_8th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_8th|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 11</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_11th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_11th|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_11th|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_11th|float * 100)|int)}}%</td>
+                        </tr>
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-2', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 1, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-3', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 2, false);
+                    </script>
+                </section>
+                <hr>
+                <!-- OVERALL PRO GENDER  -->
+                <section class="stacked over-pro-race">
+                     <div>
+                        <h3>Gender: All Grade Levels</h3>                 
+                    </div>
+                    <div id="stacked-chart-6" class="stacked-per-column"></div>
+                    <div id="stacked-chart-7" class="stacked-per-column"></div>
+                    <table cellpadding=7>
+                        <thead>
+                            <th>Gender</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        <tr>
+                            <td>Male</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_male|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_male|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_male|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_male|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Female</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_female|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_female|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_female|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_female|float * 100)|int)}}%</td>
+                        </tr>
+                    </table>
+                     <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-6', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 5, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-7', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 6, false);
+                    </script>
+                </section>
+                <hr>
+                <!-- OVERALL PRO RACE  -->
+                <section class="stacked over-pro-race">
+                     <div>
+                        <h3>Race and Ethnicity: All Grade Levels</h3>                 
+                    </div>
+                    <div id="stacked-chart-4" class="stacked-per-column"></div>
+                    <div id="stacked-chart-5" class="stacked-per-column"></div>
+                    <table cellpadding=7>
+                        <thead>
+                            <th>Race/Ethnicity</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        <tr>
+                            <td>White</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_white|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_white|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_white|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_white|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Hispanic</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_hisp|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_hisp|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_hisp|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_hisp|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>African-American</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_afram|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_afram|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_afram|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_afram|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Asian</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_asian|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_asian|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_asian|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_asian|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Other</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_otherrace1|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_otherrace1|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_otherrace1|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_otherrace1|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Two or More Races</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_eng_otherrace2|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_eng_otherrace2|float * 100)|int)}}%</td>
+                            <td>{{((home.pct_standard_met_or_exceeded_math_otherrace2|float * 100)|int)}}%</td>
+                            <td>{{100 - ((home.pct_standard_met_or_exceeded_math_otherrace2|float * 100)|int)}}%</td>
+                        </tr>
+                    </table>
+                     <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 3, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
+                    </script>
+                </section>
+                <hr>
+                <a name="search"></a>
+                <section id="rs-search">
+
+
+                </section>
+                <div id="rs-footer" class="rs-subheds">
+                    <h2><a href="http://edsource.org">Edsource</a></h2>
+                    <div>
+                        <a href="http://edsource.org/about-edsource">About</a>
+                        <a href="http://edsource.org/subscribe">Subscribe</a>
+                        <a href="mailto:edsource@edsource.org">Contact</a>
+                    </div>
+                </div>    
+            </div>         
+        </div>
+    </body>    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3051201-4', 'edsource.org');
+    ga('send', 'pageview');
+
     </script>
 </html>
