@@ -25,6 +25,7 @@
                 </div>
                 <div><h2><a href="/">Smarter Balanced Test Results</a></h2></div>
                 <div>
+                    <a href="/state">Compare States</a>
                     <a href="/search">Search Districts</a>
                     <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
                 </div>
@@ -199,10 +200,11 @@
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-7', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 6, false);
                     </script>
                 </section>
-                <hr>
                 <!-- OVERALL PRO RACE  -->
+                {% if object.check_race %}
+                <hr>
                 <section class="stacked over-pro-race">
-                     <div>
+                    <div>
                         <h3>Race and Ethnicity: All Grade Levels</h3>                 
                     </div>
                     <div id="stacked-chart-4" class="stacked-per-column"></div>
@@ -263,6 +265,7 @@
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 510,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
                     </script>
                 </section>
+                {% endif %}
                 <div id="rs-footer" class="rs-subheds">
                     <h2><a href="http://edsource.org">Edsource</a></h2>
                    <div>
