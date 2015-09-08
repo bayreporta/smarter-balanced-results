@@ -5,8 +5,8 @@ from flask import render_template
 app = Flask(__name__)
 
 ## GET CSV ##
-def get_csv():
-	csv_path = './static/data.csv' 
+def get_csv(path):
+	csv_path = path 
 	csv_file = open(csv_path, 'rb')
 	csv_obj = csv.DictReader(csv_file)
 	csv_list = list(csv_obj)
@@ -16,21 +16,28 @@ def get_csv():
 @app.route('/')
 def index():
 	template = 'index.html'
-	raw_data = get_csv()
+	raw_data = get_csv('./static/data.csv')
 	return render_template(template, home=raw_data[0], data=json.dumps(raw_data[0]))
 
 ## SEARCH PAGE ##
 @app.route('/search')
 def search():
 	template = 'search.html'
-	raw_data = get_csv()
+	raw_data = get_csv('./static/data.csv')
+	return render_template(template, data=raw_data)
+
+## STATE PAGE ##
+@app.route('/state')
+def state():
+	template = 'state.html'
+	raw_data = get_csv('./static/state.csv')
 	return render_template(template, data=raw_data)
 
 ## DETAIL PAGE ##
 @app.route('/<entity_slug>')
 def detail(entity_slug):
 	template = 'detail.html'
-	raw_data = get_csv()
+	raw_data = get_csv('./static/data.csv')
 	for row in raw_data:
 		if row['entity_slug'] == entity_slug:
 			return render_template(template, object=row, data=json.dumps(row))

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"><title>California Smarter Balanced Test Results | EdSource</title></meta>
+        <meta name="description" content="A non-profit journalism website reporting on key education issues in California and beyond."></meta>
+        <meta name="tags" content="education news, california education, non-profit news, common core, local control funding formula, k-12 education, smarter balanced"></meta> 
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="http://edsource.org/wp-content/css/smarter-balanced.css">
+        <link rel="stylesheet" type="text/css" href="http://edsource.org/wp-content/css/charts/stacked-column-percent.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+        <script src="http://edsource.org/wp-content/js/d3.tip.v0.6.3.js" charset="utf-8"></script>
+        <script type="text/javascript" src="http://edsource.org/wp-content/js/colorbrewer.js"></script>
+        <script type="text/javascript" src="http://edsource.org/wp-content/js/charts/stacked-column-percent-jinja.js"></script>
+    </head>
+    <body>
+        <div id="rs-contain">
+            <section id="rs-header">
+                <div class="rs-site">
+                    <h2><a href="http://edsource.org">EdSource</a></h2>
+                </div>
+                <div><h2><a href="/">Smarter Balanced Test Results</a></h2></div>
+                <div>
+                    <a href="/state">Compare States</a>
+                    <a href="/search">Search Districts</a>
+                    <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
+                </div>
+            </section>
+            <div id="rs-body">
+                <section class="overview home">
+                    <div>
+                        <h1>Smarted Balanced Results by State: 2014-15</h1>
+                    </div>
+                    <div>
+                        <p>Eight states already released some results of the Smarter Balanced Assessments, which could give an indication of what California will see when scores are released Wednesday.</p>
+                        <p>But comparisons will be hard to make: California is simply much larger and more diverse than other states. Test experts say the number of English learners and low-income students often skews scores lower – and California has way more than the other states.</p>
+                        <p>The eight states that have released preliminary or final Smarter Balanced scores so far are: Connecticut, Delaware, Idaho, Missouri, Oregon, Vermont, Washington and West Virginia.</p>
+                        <p>Generally, scores hovered around half meeting English standards and closer to one-third or 40 percent reaching math standards. Not all states released the number of test takers or broke out scores by different populations.</p>
+                        <p>But consider the population: The combined number of students in all eight states was around 3.9 million. California’s was 6.3 million, according to the National Center for Education Statistics’ latest numbers from 2012-13.</p>
+                        <p>In each of the other states, English learner students made up well under 10 percent of its enrollment. In California, it was closer to one-quarter.  </p>
+                        <p>Los Angeles County has more English learners than those eight states combined.</p>
+                        <p>Some of the eight states released scores for their English learners. Vermont’s scores for English learners varied widely, depending on the grade and subject. For example, in English, the number of proficient students ranged from 36 percent in 3rd grade to less than 2 percent in 11th grade.</p>
+                        <p>But Vermont’s number of test takers is tiny: A total of 552 English learners took the Smarter Balanced math test in the entire state. That’s less than the number of English learners in a single Santa Ana high school.</p>
+                        <p>Connecticut released a combined score for “high needs” students, meaning those who are eligible for free or reduced priced lunch or English learners. About 31 percent met achievement levels in English and 16 percent in math. </p>
+                        <p>But the definition is different: Connecticut had scores for English learners who have attended U.S. schools for less than a year. In California, those students are exempt from the English test.</p>
+                        <p>In Washington, no English learner scores were released for 11th grade because fewer than 5 percent of the test takers were proficient. About half of all of Washington’s juniors refused to take assessments.</p>
+                        <p>So, as California starts to see how students performed, they may want to take a deeper look before coming to conclusions.</p>
+                    </div>       
+                </section>
+                <section class="stacked">
+                    <div>
+                        <h3>Grade 3 Results</h3>
+                    </div>
+                    <div id="stacked-chart-1" class="stacked-per-column"></div>
+                    <div id="stacked-chart-2" class="stacked-per-column"></div>
+                     <table cellpadding=7>
+                        <thead>
+                            <th>State</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.states}}</td>
+                            <td>{{(d.english_3rd|float*100)|int }}%</td>
+                            <td>{{(100 - (d.english_3rd|float*100))|int}}%</td>
+                            <td>{{(d.math_3rd|float*100)|int}}%</td>
+                            <td>{{(100 - (d.math_3rd|float*100))|int}}%</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-1', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 11, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-2', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 21, false);
+                    </script>
+                    
+                </section>
+
+                <div id="rs-footer" class="rs-subheds">
+                    <h2><a href="http://edsource.org">Edsource</a></h2>
+                    <div>
+                        <a href="http://edsource.org/about-edsource">About</a>
+                        <a href="/search">Search Districts</a>
+                        <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
+                    </div>
+                </div>    
+            </div>         
+        </div>
+    </body>    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3051201-4', 'edsource.org');
+    ga('send', 'pageview');
+
+    </script>
+</html>
