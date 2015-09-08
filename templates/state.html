@@ -77,11 +77,195 @@
                     </table>
                     <script type="text/javascript">
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-1', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 11, true);
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-2', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 21, false);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-2', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 21, false);
                     </script>
                     
                 </section>
-
+                <hr>
+                <section class="stacked">
+                    <div>
+                        <h3>Grade 4 Results</h3>
+                    </div>
+                    <div id="stacked-chart-3" class="stacked-per-column"></div>
+                    <div id="stacked-chart-4" class="stacked-per-column"></div>
+                     <table cellpadding=7>
+                        <thead>
+                            <th>State</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.states}}</td>
+                            <td>{{(d.english_4th|float*100)|int }}%</td>
+                            <td>{{(100 - (d.english_4th|float*100))|int}}%</td>
+                            <td>{{(d.math_4th|float*100)|int}}%</td>
+                            <td>{{(100 - (d.math_4th|float*100))|int}}%</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-3', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 12, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-4', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 22, false);
+                    </script>
+                    
+                </section>
+                <hr>
+                <section class="stacked">
+                    <div>
+                        <h3>Grade 5 Results</h3>
+                    </div>
+                    <div id="stacked-chart-5" class="stacked-per-column"></div>
+                    <div id="stacked-chart-6" class="stacked-per-column"></div>
+                     <table cellpadding=7>
+                        <thead>
+                            <th>State</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.states}}</td>
+                            <td>{{(d.english_5th|float*100)|int }}%</td>
+                            <td>{{(100 - (d.english_5th|float*100))|int}}%</td>
+                            <td>{{(d.math_5th|float*100)|int}}%</td>
+                            <td>{{(100 - (d.math_5th|float*100))|int}}%</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-5', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 13, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-6', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 23, false);
+                    </script>
+                    
+                </section>
+                <hr>
+                <section class="stacked">
+                    <div>
+                        <h3>Grade 6 Results</h3>
+                    </div>
+                    <div id="stacked-chart-7" class="stacked-per-column"></div>
+                    <div id="stacked-chart-8" class="stacked-per-column"></div>
+                     <table cellpadding=7>
+                        <thead>
+                            <th>State</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.states}}</td>
+                            <td>{{(d.english_6th|float*100)|int }}%</td>
+                            <td>{{(100 - (d.english_6th|float*100))|int}}%</td>
+                            <td>{{(d.math_6th|float*100)|int}}%</td>
+                            <td>{{(100 - (d.math_6th|float*100))|int}}%</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-7', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 14, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-8', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 24, false);
+                    </script>
+                    
+                </section>
+                <hr>
+                <section class="stacked">
+                    <div>
+                        <h3>Grade 7 Results</h3>
+                    </div>
+                    <div id="stacked-chart-9" class="stacked-per-column"></div>
+                    <div id="stacked-chart-10" class="stacked-per-column"></div>
+                     <table cellpadding=7>
+                        <thead>
+                            <th>State</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.states}}</td>
+                            <td>{{(d.english_7th|float*100)|int }}%</td>
+                            <td>{{(100 - (d.english_7th|float*100))|int}}%</td>
+                            <td>{{(d.math_7th|float*100)|int}}%</td>
+                            <td>{{(100 - (d.math_7th|float*100))|int}}%</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-9', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 15, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-10', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 25, false);
+                    </script>
+                    
+                </section>
+                <hr>
+                <section class="stacked">
+                    <div>
+                        <h3>Grade 8 Results</h3>
+                    </div>
+                    <div id="stacked-chart-11" class="stacked-per-column"></div>
+                    <div id="stacked-chart-12" class="stacked-per-column"></div>
+                     <table cellpadding=7>
+                        <thead>
+                            <th>State</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.states}}</td>
+                            <td>{{(d.english_8th|float*100)|int }}%</td>
+                            <td>{{(100 - (d.english_8th|float*100))|int}}%</td>
+                            <td>{{(d.math_8th|float*100)|int}}%</td>
+                            <td>{{(100 - (d.math_8th|float*100))|int}}%</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-11', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 16, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-12', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 26, false);
+                    </script>
+                </section>
+                <hr>
+                <section class="stacked">
+                    <div>
+                        <h3>Grade 11 Results</h3>
+                    </div>
+                    <div id="stacked-chart-13" class="stacked-per-column"></div>
+                    <div id="stacked-chart-14" class="stacked-per-column"></div>
+                     <table cellpadding=7>
+                        <thead>
+                            <th>State</th>
+                            <th>English: Standards Met or Exceeded</th>
+                            <th>English: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Met or Exceeded</th>
+                            <th>Math: Standards Nearly or Not Met</th>
+                        </thead>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.states}}</td>
+                            <td>{{(d.english_11th|float*100)|int }}%</td>
+                            <td>{{(100 - (d.english_11th|float*100))|int}}%</td>
+                            <td>{{(d.math_11th|float*100)|int}}%</td>
+                            <td>{{(100 - (d.math_11th|float*100))|int}}%</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-13', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 17, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/state.csv', 'stacked-chart-14', 510, 300, [50,100,30,40], colorbrewer['BuPu'], 3, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 27, false);
+                    </script>
+                    
+                </section>
                 <div id="rs-footer" class="rs-subheds">
                     <h2><a href="http://edsource.org">Edsource</a></h2>
                     <div>
