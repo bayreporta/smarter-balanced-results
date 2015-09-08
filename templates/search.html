@@ -7,6 +7,7 @@
         <meta name="HandheldFriendly" content="true" />
         <meta name="MobileOptimized" content="320" />
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="http://edsource.org/wp-content/css/smarter-balanced.css">
@@ -15,6 +16,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
         <script src="http://edsource.org/wp-content/js/d3.tip.v0.6.3.js" charset="utf-8"></script>
         <script type="text/javascript" src="http://edsource.org/wp-content/js/colorbrewer.js"></script>
+        <script type="text/javascript" src="http://edsource.org/wp-content/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="http://edsource.org/wp-content/js/charts/stacked-column-percent-jinja.js"></script>
     </head>
     <body>
@@ -27,22 +29,32 @@
                 <div>
                     <a href="/search">Search Districts</a>
                     <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
-                </div>
+                </div>            
             </section>
             <div id="rs-body">
                 <section class="overview">
-                     <div><h2>Search School Districts</h2></div>          
+                     <div><h2>Search School Districts</h2></div>   
+                     <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget lacus quam. Suspendisse luctus arcu nec nisl ultricies, quis sodales felis mollis. Mauris quis leo eu augue hendrerit fermentum ac sed sapien. Mauris dignissim mattis ligula eu maximus. Sed consequat metus nec eleifend interdum. Fusce dapibus nibh eget augue finibus commodo. Donec bibendum ligula at mi consequat, ac sagittis metus consectetur. Aliquam tempus dolor ornare ex sodales sodales. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam ac lorem odio. Nulla facilisi. Curabitur eleifend velit commodo tristique tincidunt. Ut feugiat lectus et enim scelerisque consectetur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi eu sodales sapien. Sed in nunc eget lorem condimentum eleifend vitae ac nulla.</p>
+                    </div>         
                 </section>
+
                 <hr>
+                <div id="pretty-table-top"><a href="#top"><i class="fa fa-arrow-up"></i></a></div>
+                <section id="pretty-table-search-options">
+                    <input id="pretty-table-search" type="text" style="height:24px;" placeholder="Search School Districts">
+                    <div><p class="pretty-table-button" id="execute-search">Search</p></div>
+                    <div><p class="pretty-table-button" id="reset-search">Reset</p></div>
+                </section>
                 <section>
-                     <table cellpadding=7>
-                        <tr>
+                     <table id="sb-table" cellpadding=7>
+                        <thead>
                             <th>School District</th>
                             <th>English: Standards Met or Exceeded</th>
                             <th>English: Standards Nearly or Not Met</th>
                             <th>Math: Standards Met or Exceeded</th>
                             <th>Math: Standards Nearly or Not Met</th>
-                        </tr>
+                        </thead>
                         {% for d in data %}
                         <tr>
                             <td><a href="{{d.entity_slug}}">{{d.entity_name}}</a></td>
@@ -54,7 +66,57 @@
                         {% endfor %}
                     </table>
                 </section>
-            </div>         
+            </div>  
+             <div id="rs-footer" class="rs-subheds">
+                <h2><a href="http://edsource.org">Edsource</a></h2>
+                <div>
+                    <a href="http://edsource.org/about-edsource">About</a>
+                    <a href="/search">Search Districts</a>
+                    <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
+                </div>
+            </div>     
+            <script type="text/javascript">
+
+                /* CONFIGURE TABLESORTER
+                ======================================*/    
+                window.onload = function(){
+                   jQuery('#sb-table').tablesorter({sortList: [[0,0]]});
+                }
+                
+                /* SEARCH FUNCTIONS
+                ======================================*/    
+                var jQueryrows = jQuery("#sb-table tr");
+                var allRows = document.getElementsByTagName('tr');
+                function searchTool(){
+                    var val = jQuery.trim(jQuery('#pretty-table-search').val()).replace(/ +/g, ' ').toLowerCase();
+                    if (val === ''){
+                        var showMe = document.querySelectorAll('[show-me=yes]');
+                    }
+                    else if (val !== '') {
+                         for (var i=1 ; i < allRows.length ; i++){
+                            allRows[i].style.display = "table-row";
+
+                            var testText = allRows[i].textContent;
+                            testText = testText.replace(/\s+/g, ' ').toLowerCase();
+                            if (testText.indexOf(val) == -1){
+                                allRows[i].style.display = "none";
+                            }
+                         }
+                    }
+                }       
+
+                jQuery('#execute-search').on('click', function(){searchTool();});
+                jQuery('#pretty-table-search').on('keypress', function(e){
+                    var key = e.which;
+                    if (key == 13){searchTool();}
+                })
+
+                jQuery('#reset-search').on('click', function(){
+                    jQuery('tr').css('display','table-row');
+                    jQuery('#pretty-table-search').val('');
+                })
+
+            </script>      
         </div>
     </body>    
     <script>

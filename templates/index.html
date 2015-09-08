@@ -25,6 +25,7 @@
                 </div>
                 <div><h2><a href="/">Smarter Balanced Test Results</a></h2></div>
                 <div>
+                    <a href="/states">Compare States</a>
                     <a href="/search">Search Districts</a>
                     <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
                 </div>
@@ -267,22 +268,16 @@
                         </tr>
                     </table>
                      <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 3, true);
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 510,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 3, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 510,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
                     </script>
-                </section>
-                <hr>
-                <a name="search"></a>
-                <section id="rs-search">
-
-
                 </section>
                 <div id="rs-footer" class="rs-subheds">
                     <h2><a href="http://edsource.org">Edsource</a></h2>
                     <div>
                         <a href="http://edsource.org/about-edsource">About</a>
-                        <a href="http://edsource.org/subscribe">Subscribe</a>
-                        <a href="mailto:edsource@edsource.org">Contact</a>
+                        <a href="/search">Search Districts</a>
+                        <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
                     </div>
                 </div>    
             </div>         
