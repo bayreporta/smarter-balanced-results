@@ -47,7 +47,7 @@
                             <td>{{((object.total_students_tested|int/object.total_enrollment|int)*100)|round|int}}%</td>
                         </tr>
                         <tr>
-                            <td>Free and Reduced Lunch</td>
+                            <td>Free and Reduced Priced Meals</td>
                             <td>{{((object.pct_frpm|float)*100)|round|int}}%</td>
                         </tr>
                         <tr>
@@ -62,7 +62,7 @@
                 <!-- OVERALL PRO  -->
                 <section class="stacked over-pro-grade">
                     <div>
-                        <h3>All Students: All Grades Levels</h3>
+                        <h3>Overall Test Results</h3>
                     </div>
                     <div id="stacked-chart-1" class="stacked-per-column"></div>
                      <table cellpadding=7>
@@ -97,7 +97,7 @@
                 <!-- OVERALL PRO GRADES  -->
                 <section class="stacked over-pro-grades">
                     <div>
-                        <h3>All Students: Grade Level Breakdown</h3>
+                        <h3>Grade Level Breakdown</h3>
                     </div>
                     <div id="stacked-chart-2" class="stacked-per-column"></div>
                     <div id="stacked-chart-3" class="stacked-per-column"></div>
@@ -174,7 +174,7 @@
                         {% endif %}
                     </table>
                     <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-2', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 1, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-2', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 1, true);
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-3', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 2, false);
                     </script>
                 </section>
@@ -182,7 +182,7 @@
                 <!-- OVERALL PRO GENDER  -->
                 <section class="stacked over-pro-race">
                      <div>
-                        <h3>Gender: All Grade Levels</h3>                 
+                        <h3>Overall Test Results by Gender</h3>                 
                     </div>
                     <div id="stacked-chart-6" class="stacked-per-column"></div>
                     <div id="stacked-chart-7" class="stacked-per-column"></div>
@@ -210,7 +210,7 @@
                         </tr>
                     </table>
                      <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-6', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 5, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-6', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 5, true);
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-7', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 6, false);
                     </script>
                 </section>
@@ -219,7 +219,7 @@
                 <hr>
                 <section class="stacked over-pro-race">
                     <div>
-                        <h3>Race and Ethnicity: All Grade Levels</h3>                 
+                        <h3>Overall Test Results by Race and Ethnicity</h3>                 
                     </div>
                     <div id="stacked-chart-4" class="stacked-per-column"></div>
                     <div id="stacked-chart-5" class="stacked-per-column"></div>
@@ -275,7 +275,7 @@
                         </tr>
                     </table>
                      <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 510,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 3, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 510,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 3, true);
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 510,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
                     </script>
                 </section>
