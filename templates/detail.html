@@ -109,6 +109,7 @@
                             <th>Math: Standards Met or Exceeded</th>
                             <th>Math: Standards Nearly or Not Met</th>
                         </thead>
+                        {% if object.check_3rd %}
                          <tr>
                             <td>Grade 3</td>
                             <td>{{((object.pct_standard_met_or_exceeded_eng_3rd|float * 100)|int)}}%</td>
@@ -116,6 +117,8 @@
                             <td>{{((object.pct_standard_met_or_exceeded_math_3rd|float * 100)|int)}}%</td>
                             <td>{{100 - ((object.pct_standard_met_or_exceeded_math_3rd|float * 100)|int)}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_4th %}
                         <tr>
                             <td>Grade 4</td>
                             <td>{{((object.pct_standard_met_or_exceeded_eng_4th|float * 100)|int)}}%</td>
@@ -123,6 +126,8 @@
                             <td>{{((object.pct_standard_met_or_exceeded_math_4th|float * 100)|int)}}%</td>
                             <td>{{100 - ((object.pct_standard_met_or_exceeded_math_4th|float * 100)|int)}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_5th %}
                         <tr>
                             <td>Grade 5</td>
                             <td>{{((object.pct_standard_met_or_exceeded_eng_5th|float * 100)|int)}}%</td>
@@ -130,6 +135,8 @@
                             <td>{{((object.pct_standard_met_or_exceeded_math_5th|float * 100)|int)}}%</td>
                             <td>{{100 - ((object.pct_standard_met_or_exceeded_math_5th|float * 100)|int)}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_6th %}
                         <tr>
                             <td>Grade 6</td>
                             <td>{{((object.pct_standard_met_or_exceeded_eng_6th|float * 100)|int)}}%</td>
@@ -137,6 +144,8 @@
                             <td>{{((object.pct_standard_met_or_exceeded_math_6th|float * 100)|int)}}%</td>
                             <td>{{100 - ((object.pct_standard_met_or_exceeded_math_6th|float * 100)|int)}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_7th %}
                         <tr>
                             <td>Grade 7</td>
                             <td>{{((object.pct_standard_met_or_exceeded_eng_7th|float * 100)|int)}}%</td>
@@ -144,6 +153,8 @@
                             <td>{{((object.pct_standard_met_or_exceeded_math_7th|float * 100)|int)}}%</td>
                             <td>{{100 - ((object.pct_standard_met_or_exceeded_math_7th|float * 100)|int)}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_8th %}
                         <tr>
                             <td>Grade 8</td>
                             <td>{{((object.pct_standard_met_or_exceeded_eng_8th|float * 100)|int)}}%</td>
@@ -151,6 +162,8 @@
                             <td>{{((object.pct_standard_met_or_exceeded_math_8th|float * 100)|int)}}%</td>
                             <td>{{100 - ((object.pct_standard_met_or_exceeded_math_8th|float * 100)|int)}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_11th %}
                         <tr>
                             <td>Grade 11</td>
                             <td>{{((object.pct_standard_met_or_exceeded_eng_11th|float * 100)|int)}}%</td>
@@ -158,6 +171,7 @@
                             <td>{{((object.pct_standard_met_or_exceeded_math_11th|float * 100)|int)}}%</td>
                             <td>{{100 - ((object.pct_standard_met_or_exceeded_math_11th|float * 100)|int)}}%</td>
                         </tr>
+                        {% endif %}
                     </table>
                     <script type="text/javascript">
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-2', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Results', null, {{ data|safe }}, 1, true);
