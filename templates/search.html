@@ -37,8 +37,8 @@
                      <div><h2>Search School Districts</h2></div>   
                      <div id="rs-share"></div>
                      <div>
-                        <p>Search for one of the more than 1,000 school districts and charter schools and county offices of education that administered the Smarter Balanced tests in the spring 2015. Sort through the data below by clicking on the table header. Click on the name of the school district, charter schools or county offices of education to get more details from the test results, including demographic breakdowns.</p>
-                        <p>If you have any questions about the data or the profile pages, feel free to <a href="mailto:edsource@edsource.org">contact us.</a></p>
+                        <p>Search for one of the more than 1,000 school districts, charter schools and county offices of education that administered the Smarter Balanced tests in the spring 2015. Sort through the data below by clicking on the table header. Click on the name of the school district, charter schools or county offices of education to get more details from the test results. Demographic breakdowns are also on the way.</p>
+                        <p>Some school districts, charter schools and county offices of education may not be on in the database before. Let us know if you find one that is missing, or if you have any <a href="mailto:edsource@edsource.org">questions about the database</a>.</p>
                     </div>         
                 </section>
 
@@ -59,13 +59,15 @@
                             <th>Math: Standards Nearly or Not Met</th>
                         </thead>
                         {% for d in data %}
+                        {% if d.check_all %}
                         <tr>
                             <td><a href="{{d.entity_slug}}.html">{{d.entity_name}}</a></td>
-                            <td>{{(d.pct_standard_met_or_exceeded_eng|float*100)|int }}%</td>
-                            <td>{{(100 - (d.pct_standard_met_or_exceeded_eng|float*100))|int}}%</td>
-                            <td>{{(d.pct_standard_met_or_exceeded_math|float*100)|int}}%</td>
-                            <td>{{(100 - (d.pct_standard_met_or_exceeded_math|float*100))|int}}%</td>
+                            <td>{{(d.pct_standard_met_or_exceeded_eng|float*100)}}%</td>
+                            <td>{{(100 - (d.pct_standard_met_or_exceeded_eng|float*100))}}%</td>
+                            <td>{{(d.pct_standard_met_or_exceeded_math|float*100)}}%</td>
+                            <td>{{(100 - (d.pct_standard_met_or_exceeded_math|float*100))}}%</td>
                         </tr>
+                        {% endif %}
                         {% endfor %}
                     </table>
                 </section>

@@ -38,20 +38,11 @@
                     </div>
                     <div id="rs-share"></div>
                     <div>
-                        <p>Eight states already released some results of the Smarter Balanced Assessments, which could give an indication of what California will see when scores are released Wednesday.</p>
-                        <p>But comparisons will be hard to make: California is simply much larger and more diverse than other states. Test experts say the number of English learners and low-income students often skews scores lower – and California has way more than the other states.</p>
-                        <p>The eight states that have released preliminary or final Smarter Balanced scores so far are: Connecticut, Delaware, Idaho, Missouri, Oregon, Vermont, Washington and West Virginia.</p>
-                        <p>Generally, scores hovered around half meeting English standards and closer to one-third or 40 percent reaching math standards. Not all states released the number of test takers or broke out scores by different populations.</p>
-                        <p>But consider the population: The combined number of students in all eight states was around 3.9 million. California’s was 6.3 million, according to the National Center for Education Statistics’ latest numbers from 2012-13.</p>
-                        <p>In each of the other states, English learner students made up well under 10 percent of its enrollment. In California, it was closer to one-quarter.  </p>
-                        <p>Los Angeles County has more English learners than those eight states combined.</p>
-                        <p>Some of the eight states released scores for their English learners. Vermont’s scores for English learners varied widely, depending on the grade and subject. For example, in English, the number of proficient students ranged from 36 percent in 3rd grade to less than 2 percent in 11th grade.</p>
-                        <p>But Vermont’s number of test takers is tiny: A total of 552 English learners took the Smarter Balanced math test in the entire state. That’s less than the number of English learners in a single Santa Ana high school.</p>
-                        <p>Connecticut released a combined score for “high needs” students, meaning those who are eligible for free or reduced priced lunch or English learners. About 31 percent met achievement levels in English and 16 percent in math. </p>
-                        <p>But the definition is different: Connecticut had scores for English learners who have attended U.S. schools for less than a year. In California, those students are exempt from the English test.</p>
-                        <p>In Washington, no English learner scores were released for 11th grade because fewer than 5 percent of the test takers were proficient. About half of all of Washington’s juniors refused to take assessments.</p>
-                        <p>So, as California starts to see how students performed, they may want to take a deeper look before coming to conclusions.</p>
-                        <em><p>Overall results for all grade levels tested in English Language Arts and Math were omitted below since the data could not be located for several states. Regarding the following state data, results from Delaware, Idaho, Oregon, and West Virginia are preliminary. Missouri 8th-grade math tests do not include Algebra students, and there were no tests administered for 11th graders in the state. In Washington, about 50 percent of 11th graders did not take the test. Finally, West Virginia did administer tests to 9th- and 10th-graders, but those results are omitted since California did not administer tests for those grade levels.</p></em>
+                       <p>As of Sept. 9, 2015, eight states in addition to California have released preliminary or final results of the <a href="http://www.smarterbalanced.org">Smarter Balanced</a> assessments administered to students in the spring of 2015. They are Connecticut, Delaware, Idaho, Missouri, Oregon, Vermont, Washington and West Virginia. </p>
+                       <p>While the Smarter Balanced scoring system is the same in every state, ranging from level 1, the least proficient, to level 4, the most proficient, states have different terminology to describe the four levels. </p>
+                       <p>In most states, students scoring at level 3 are labeled “proficient,” while Connecticut identifies students at level 3 as “meeting the achievement level.” In Oregon, the level for proficiency is simply listed as a 3 or higher on the state’s press release regarding preliminary scores.  California education officials have rejected the term “proficient” and instead describe students at level 3 as having met the standard and at level 4 as having exceeded the standard. </p>
+                       <p>Regardless of the terms used to describe them, each of the four levels should be roughly equivalent in each state. In the following charts, state results are presented by each of the four achievement levels. </p>
+                        <em><p>A composite score for student performance in grades 5-8 and 11 in English language arts and math is not listed since, in several states, the data were not available, or had not been compiled for every grade and subject. Results from Delaware, Idaho, Oregon and West Virginia are preliminary. <a href="https://dese.mo.gov/communications/news-releases/achievement-cut-scores-set-missouri-assessment-program">Missouri’s</a> 8th grade math assessments did not include students in 8th grade Algebra 1.  In Washington State, about 50 percent of 11th graders did not take the tests. </p></em>
                     </div>       
                 </section>
                 <section class="stacked">
@@ -71,10 +62,10 @@
                         {% for d in data %}
                         <tr>
                             <td>{{d.states}}</td>
-                            <td>{{(d.english_3rd|float*100)|int }}%</td>
-                            <td>{{(100 - (d.english_3rd|float*100))|int}}%</td>
-                            <td>{{(d.math_3rd|float*100)|int}}%</td>
-                            <td>{{(100 - (d.math_3rd|float*100))|int}}%</td>
+                            <td>{{(d.english_3rd|float*100) }}%</td>
+                            <td>{{(100 - (d.english_3rd|float*100))}}%</td>
+                            <td>{{(d.math_3rd|float*100)}}%</td>
+                            <td>{{(100 - (d.math_3rd|float*100))}}%</td>
                         </tr>
                         {% endfor %}
                     </table>
@@ -102,10 +93,10 @@
                         {% for d in data %}
                         <tr>
                             <td>{{d.states}}</td>
-                            <td>{{(d.english_4th|float*100)|int }}%</td>
-                            <td>{{(100 - (d.english_4th|float*100))|int}}%</td>
-                            <td>{{(d.math_4th|float*100)|int}}%</td>
-                            <td>{{(100 - (d.math_4th|float*100))|int}}%</td>
+                            <td>{{(d.english_4th|float*100) }}%</td>
+                            <td>{{(100 - (d.english_4th|float*100))}}%</td>
+                            <td>{{(d.math_4th|float*100)}}%</td>
+                            <td>{{(100 - (d.math_4th|float*100))}}%</td>
                         </tr>
                         {% endfor %}
                     </table>
@@ -133,10 +124,10 @@
                         {% for d in data %}
                         <tr>
                             <td>{{d.states}}</td>
-                            <td>{{(d.english_5th|float*100)|int }}%</td>
-                            <td>{{(100 - (d.english_5th|float*100))|int}}%</td>
-                            <td>{{(d.math_5th|float*100)|int}}%</td>
-                            <td>{{(100 - (d.math_5th|float*100))|int}}%</td>
+                            <td>{{(d.english_5th|float*100) }}%</td>
+                            <td>{{(100 - (d.english_5th|float*100))}}%</td>
+                            <td>{{(d.math_5th|float*100)}}%</td>
+                            <td>{{(100 - (d.math_5th|float*100))}}%</td>
                         </tr>
                         {% endfor %}
                     </table>
@@ -164,10 +155,10 @@
                         {% for d in data %}
                         <tr>
                             <td>{{d.states}}</td>
-                            <td>{{(d.english_6th|float*100)|int }}%</td>
-                            <td>{{(100 - (d.english_6th|float*100))|int}}%</td>
-                            <td>{{(d.math_6th|float*100)|int}}%</td>
-                            <td>{{(100 - (d.math_6th|float*100))|int}}%</td>
+                            <td>{{(d.english_6th|float*100) }}%</td>
+                            <td>{{(100 - (d.english_6th|float*100))}}%</td>
+                            <td>{{(d.math_6th|float*100)}}%</td>
+                            <td>{{(100 - (d.math_6th|float*100))}}%</td>
                         </tr>
                         {% endfor %}
                     </table>
@@ -195,10 +186,10 @@
                         {% for d in data %}
                         <tr>
                             <td>{{d.states}}</td>
-                            <td>{{(d.english_7th|float*100)|int }}%</td>
-                            <td>{{(100 - (d.english_7th|float*100))|int}}%</td>
-                            <td>{{(d.math_7th|float*100)|int}}%</td>
-                            <td>{{(100 - (d.math_7th|float*100))|int}}%</td>
+                            <td>{{(d.english_7th|float*100) }}%</td>
+                            <td>{{(100 - (d.english_7th|float*100))}}%</td>
+                            <td>{{(d.math_7th|float*100)}}%</td>
+                            <td>{{(100 - (d.math_7th|float*100))}}%</td>
                         </tr>
                         {% endfor %}
                     </table>
@@ -226,10 +217,10 @@
                         {% for d in data %}
                         <tr>
                             <td>{{d.states}}</td>
-                            <td>{{(d.english_8th|float*100)|int }}%</td>
-                            <td>{{(100 - (d.english_8th|float*100))|int}}%</td>
-                            <td>{{(d.math_8th|float*100)|int}}%</td>
-                            <td>{{(100 - (d.math_8th|float*100))|int}}%</td>
+                            <td>{{(d.english_8th|float*100) }}%</td>
+                            <td>{{(100 - (d.english_8th|float*100))}}%</td>
+                            <td>{{(d.math_8th|float*100)}}%</td>
+                            <td>{{(100 - (d.math_8th|float*100))}}%</td>
                         </tr>
                         {% endfor %}
                     </table>
@@ -256,10 +247,10 @@
                         {% for d in data %}
                         <tr>
                             <td>{{d.states}}</td>
-                            <td>{{(d.english_11th|float*100)|int }}%</td>
-                            <td>{{(100 - (d.english_11th|float*100))|int}}%</td>
-                            <td>{{(d.math_11th|float*100)|int}}%</td>
-                            <td>{{(100 - (d.math_11th|float*100))|int}}%</td>
+                            <td>{{(d.english_11th|float*100) }}%</td>
+                            <td>{{(100 - (d.english_11th|float*100))}}%</td>
+                            <td>{{(d.math_11th|float*100)}}%</td>
+                            <td>{{(100 - (d.math_11th|float*100))}}%</td>
                         </tr>
                         {% endfor %}
                     </table>
