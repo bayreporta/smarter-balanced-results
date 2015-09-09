@@ -16,6 +16,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
         <script src="http://edsource.org/wp-content/js/d3.tip.v0.6.3.js" charset="utf-8"></script>
         <script type="text/javascript" src="http://edsource.org/wp-content/js/colorbrewer.js"></script>
+        <script type="text/javascript" src="http://edsource.org/wp-content/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="http://edsource.org/wp-content/js/charts/stacked-column-percent-jinja.js"></script>
     </head>
     <body>
@@ -79,7 +80,7 @@
                         </tr>
                     </table>
                     <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-1', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, null, null, {{ data|safe }}, 0, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-1', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 4, true, null, null, '.0%', 10, .1, null, null, null, {{ data|safe }}, 0, true);
                     </script>
                     
                 </section>
@@ -266,8 +267,8 @@
                         </tr>
                     </table>
                      <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-6', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 5, true);
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-7', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 6, false);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-6', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, true, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 5, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-7', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 6, false);
                     </script>
                 </section>
                 <hr>
@@ -396,8 +397,8 @@
                         </tr>
                     </table>
                      <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 510,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 3, true);
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 510,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 510,300, [50,100,30,40], colorbrewer['BuPu'], 4, true, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 3, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 510,300, [50,100,30,40], colorbrewer['BuPu'], 4, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
                     </script>
                 </section>
                 <hr> 
@@ -433,10 +434,10 @@
                     <table cellpadding=7>
                         <thead>
                             <th>Status</th>
-                            <th>English: Standard Not Met</th>
-                            <th>English: Standard Nearly Met</th>
-                            <th>English: Standard Met</th>
-                            <th>English: Standard Exceeded</th>
+                            <th>Math: Standard Not Met</th>
+                            <th>Math: Standard Nearly Met</th>
+                            <th>Math: Standard Met</th>
+                            <th>Math: Standard Exceeded</th>
                         </thead>
                         <tr>
                             <td>Economically Disadvantaged</td>
@@ -454,8 +455,8 @@
                         </tr>
                     </table>
                      <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-8', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 7, true);
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-9', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 8, false);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-8', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, true, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 7, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-9', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, true, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 8, false);
                     </script>
                 </section>
                 <div id="rs-footer" class="rs-subheds">
@@ -480,6 +481,12 @@
 
             // append buttons
             jQuery('#rs-share').append(twitterButton);
+
+             /* CONFIGURE TABLESORTER
+            ======================================*/    
+            window.onload = function(){
+               jQuery('table').tablesorter({sortList: [[1,1]]});
+            }
 
         })
     </script>
