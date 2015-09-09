@@ -100,82 +100,154 @@
                         <h3>Grade Level Breakdown</h3>
                     </div>
                     <div id="stacked-chart-2" class="stacked-per-column"></div>
-                    <div id="stacked-chart-3" class="stacked-per-column"></div>
                     <table class="table-fix" cellpadding=7>
                         <thead>
                             <th>Grade</th>
-                            <th>English: Standards Met or Exceeded</th>
-                            <th>English: Standards Nearly or Not Met</th>
-                            <th>Math: Standards Met or Exceeded</th>
-                            <th>Math: Standards Nearly or Not Met</th>
+                            <th>English: Standards Not Met</th>
+                            <th>English: Standards Nearly Met</th>
+                            <th>English: Standards Met</th>
+                            <th>English: Standards Exceeded</th>
                         </thead>
                         {% if object.check_3rd %}
                          <tr>
                             <td>Grade 3</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_3rd|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_3rd|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_3rd|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_3rd|float * 100)|int)}}%</td>
+                            <td>{{((object.grade3_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade3_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade3_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade3_eng_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         {% endif %}
                         {% if object.check_4th %}
                         <tr>
                             <td>Grade 4</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_4th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_4th|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_4th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_4th|float * 100)|int)}}%</td>
+                            <td>{{((object.grade4_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade4_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade4_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade4_eng_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         {% endif %}
                         {% if object.check_5th %}
                         <tr>
                             <td>Grade 5</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_5th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_5th|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_5th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_5th|float * 100)|int)}}%</td>
+                            <td>{{((object.grade5_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade5_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade5_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade5_eng_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         {% endif %}
                         {% if object.check_6th %}
                         <tr>
                             <td>Grade 6</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_6th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_6th|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_6th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_6th|float * 100)|int)}}%</td>
+                            <td>{{((object.grade6_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade6_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade6_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade6_eng_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         {% endif %}
                         {% if object.check_7th %}
                         <tr>
                             <td>Grade 7</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_7th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_7th|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_7th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_7th|float * 100)|int)}}%</td>
+                            <td>{{((object.grade7_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade7_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade7_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade7_eng_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         {% endif %}
                         {% if object.check_8th %}
                         <tr>
                             <td>Grade 8</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_8th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_8th|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_8th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_8th|float * 100)|int)}}%</td>
+                            <td>{{((object.grade8_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade8_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade8_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade8_eng_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         {% endif %}
                         {% if object.check_11th %}
                         <tr>
                             <td>Grade 11</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_11th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_11th|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_11th|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_11th|float * 100)|int)}}%</td>
+                            <td>{{((object.grade11_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade11_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade11_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade11_eng_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                        {% endif %}
+                    </table>
+                    <div id="stacked-chart-3" class="stacked-per-column"></div>
+                    <table class="table-fix" cellpadding=7>
+                        <thead>
+                            <th>Grade</th>
+                            <th>Math: Standards Not Met</th>
+                            <th>Math: Standards Nearly Met</th>
+                            <th>Math: Standards Met</th>
+                            <th>Math: Standards Exceeded</th>
+                        </thead>
+                        {% if object.check_3rd %}
+                         <tr>
+                            <td>Grade 3</td>
+                            <td>{{((object.grade3_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade3_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade3_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade3_math_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.check_4th %}
+                        <tr>
+                            <td>Grade 4</td>
+                            <td>{{((object.grade4_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade4_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade4_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade4_math_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.check_5th %}
+                        <tr>
+                            <td>Grade 5</td>
+                            <td>{{((object.grade5_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade5_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade5_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade5_math_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.check_6th %}
+                        <tr>
+                            <td>Grade 6</td>
+                            <td>{{((object.grade6_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade6_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade6_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade6_math_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.check_7th %}
+                        <tr>
+                            <td>Grade 7</td>
+                            <td>{{((object.grade7_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade7_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade7_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade7_math_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.check_8th %}
+                        <tr>
+                            <td>Grade 8</td>
+                            <td>{{((object.grade8_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade8_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade8_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade8_math_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.check_11th %}
+                        <tr>
+                            <td>Grade 11</td>
+                            <td>{{((object.grade11_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.grade11_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.grade11_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.grade11_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         {% endif %}
                     </table>
                     <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-2', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 1, true);
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-3', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 2, false);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-2', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 1, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-3', 500, 300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 2, false);
                     </script>
                 </section>
                 <hr>
@@ -185,98 +257,172 @@
                         <h3>Overall Test Results by Gender</h3>                 
                     </div>
                     <div id="stacked-chart-6" class="stacked-per-column"></div>
+                    <table cellpadding=7>
+                        <thead>
+                            <th>Gender</th>
+                            <th>English: Standards Not Met</th>
+                            <th>English: Standards Nearly Met</th>
+                            <th>English: Standards Met</th>
+                            <th>English: Standards Exceeded</th>
+                        </thead>
+                        <tr>
+                            <td>Male</td>
+                            <td>{{((object.male_eng_lvl_1|float * 100)|int)}}%</td>
+                            <td>{{((object.male_eng_lvl_2|float * 100)|int)}}%</td>
+                            <td>{{((object.male_eng_lvl_3|float * 100)|int)}}%</td>
+                            <td>{{((object.male_eng_lvl_4|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Female</td>
+                            <td>{{((object.female_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.female_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.female_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.female_eng_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                    </table>
                     <div id="stacked-chart-7" class="stacked-per-column"></div>
                     <table cellpadding=7>
                         <thead>
                             <th>Gender</th>
-                            <th>English: Standards Met or Exceeded</th>
-                            <th>English: Standards Nearly or Not Met</th>
-                            <th>Math: Standards Met or Exceeded</th>
-                            <th>Math: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Not Met</th>
+                            <th>Math: Standards Nearly Met</th>
+                            <th>Math: Standards Met</th>
+                            <th>Math: Standards Exceeded</th>
                         </thead>
                         <tr>
                             <td>Male</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_male|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_male|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_male|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_male|float * 100)|int)}}%</td>
+                            <td>{{((object.male_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.male_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.male_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.male_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         <tr>
                             <td>Female</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_female|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_female|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_female|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_female|float * 100)|int)}}%</td>
+                            <td>{{((object.female_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.female_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.female_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.female_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
                     </table>
                      <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-6', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 5, true);
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-7', 500,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 6, false);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-6', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 5, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-7', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 6, false);
                     </script>
                 </section>
                 <!-- OVERALL PRO RACE  -->
                 {% if object.check_race %}
                 <hr>
                 <section class="stacked over-pro-race">
-                    <div>
+                     <div>
                         <h3>Overall Test Results by Race and Ethnicity</h3>                 
                     </div>
                     <div id="stacked-chart-4" class="stacked-per-column"></div>
+                    <table cellpadding=7>
+                        <thead>
+                            <th>Race/Ethnicity</th>
+                            <th>English: Standards Not Met</th>
+                            <th>English: Standards Nearly Met</th>
+                            <th>English: Standards Met</th>
+                            <th>English: Standards Exceeded</th>
+                        </thead>
+                        <tr>
+                            <td>White</td>
+                            <td>{{((object.white_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.white_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.white_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.white_eng_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                        <tr>
+                            <td>Hispanic</td>
+                            <td>{{((object.hisp_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.hisp_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.hisp_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.hisp_eng_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                         <tr>
+                            <td>African-American</td>
+                            <td>{{((object.black_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.black_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.black_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.black_eng_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                         <tr>
+                            <td>Asian</td>
+                            <td>{{((object.asian_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.asian_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.asian_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.asian_eng_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                         <tr>
+                            <td>Other Race</td>
+                            <td>{{((object.otherrace_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.otherrace_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.otherrace_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.otherrace_eng_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                         <tr>
+                            <td>Two or More Races</td>
+                            <td>{{((object.tworace_eng_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.tworace_eng_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.tworace_eng_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.tworace_eng_lvl4|float * 100)|int)}}%</td>
+                        </tr>
+                    </table>
                     <div id="stacked-chart-5" class="stacked-per-column"></div>
                     <table cellpadding=7>
                         <thead>
                             <th>Race/Ethnicity</th>
-                            <th>English: Standards Met or Exceeded</th>
-                            <th>English: Standards Nearly or Not Met</th>
-                            <th>Math: Standards Met or Exceeded</th>
-                            <th>Math: Standards Nearly or Not Met</th>
+                            <th>Math: Standards Not Met</th>
+                            <th>Math: Standards Nearly Met</th>
+                            <th>Math: Standards Met</th>
+                            <th>Math: Standards Exceeded</th>
                         </thead>
                         <tr>
                             <td>White</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_white|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_white|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_white|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_white|float * 100)|int)}}%</td>
+                            <td>{{((object.white_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.white_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.white_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.white_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
                         <tr>
                             <td>Hispanic</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_hisp|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_hisp|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_hisp|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_hisp|float * 100)|int)}}%</td>
+                            <td>{{((object.hisp_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.hisp_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.hisp_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.hisp_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
-                        <tr>
+                         <tr>
                             <td>African-American</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_afram|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_afram|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_afram|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_afram|float * 100)|int)}}%</td>
+                            <td>{{((object.black_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.black_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.black_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.black_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
-                        <tr>
+                         <tr>
                             <td>Asian</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_asian|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_asian|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_asian|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_asian|float * 100)|int)}}%</td>
+                            <td>{{((object.asian_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.asian_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.asian_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.asian_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
-                        <tr>
-                            <td>Other</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_otherrace1|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_otherrace1|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_otherrace1|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_otherrace1|float * 100)|int)}}%</td>
+                         <tr>
+                            <td>Other Race</td>
+                            <td>{{((object.otherrace_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.otherrace_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.otherrace_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.otherrace_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
-                        <tr>
+                         <tr>
                             <td>Two or More Races</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_eng_otherrace2|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_eng_otherrace2|float * 100)|int)}}%</td>
-                            <td>{{((object.pct_standard_met_or_exceeded_math_otherrace2|float * 100)|int)}}%</td>
-                            <td>{{100 - ((object.pct_standard_met_or_exceeded_math_otherrace2|float * 100)|int)}}%</td>
+                            <td>{{((object.tworace_math_lvl1|float * 100)|int)}}%</td>
+                            <td>{{((object.tworace_math_lvl2|float * 100)|int)}}%</td>
+                            <td>{{((object.tworace_math_lvl3|float * 100)|int)}}%</td>
+                            <td>{{((object.tworace_math_lvl4|float * 100)|int)}}%</td>
                         </tr>
                     </table>
                      <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 510,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 3, true);
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 510,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 510,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 3, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 510,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
                     </script>
                 </section>
                 {% endif %}
