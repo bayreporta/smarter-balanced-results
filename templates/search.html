@@ -18,6 +18,7 @@
         <script type="text/javascript" src="http://edsource.org/wp-content/js/colorbrewer.js"></script>
         <script type="text/javascript" src="http://edsource.org/wp-content/js/jquery.tablesorter.min.js"></script>
         <script type="text/javascript" src="http://edsource.org/wp-content/js/charts/stacked-column-percent-jinja.js"></script>
+        <img style="display:none;" src="http://edsource.org/wp-content/uploads/2015/09/Screen-Shot-2015-09-09-at-12.31.39-PM.png">
     </head>
     <body>
         <div id="rs-contain">
@@ -25,10 +26,10 @@
                 <div class="rs-site">
                     <h2><a href="http://edsource.org">EdSource</a></h2>
                 </div>
-                <div><h2><a href="/">Smarter Balanced Test Results</a></h2></div>
+                <div><h2><a href="http://edsource.org/smarter-balanced-results/index.html">Smarter Balanced Test Results</a></h2></div>
                 <div>
-                    <a href="/state.html">Compare States</a>
-                    <a href="search_school_districts.html">Search Districts</a>
+                    <a href="http://edsource.org/smarter-balanced-results/state.html">Compare States</a>
+                    <a href="http://edsource.org/smarter-balanced-results/search_school_districts.html">Search Districts</a>
                     <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
                 </div>            
             </section>
@@ -37,8 +38,8 @@
                      <div><h2>Search School Districts</h2></div>   
                      <div id="rs-share"></div>
                      <div>
-                        <p>Search for one of the more than 1,000 school districts, charter schools and county offices of education that administered the Smarter Balanced tests in the spring 2015. Sort through the data below by clicking on the table header. Click on the name of the school district, charter schools or county offices of education to get more details from the test results. Demographic breakdowns are also on the way.</p>
-                        <p>Some school districts, charter schools and county offices of education may not be on in the database before. Let us know if you find one that is missing, or if you have any <a href="mailto:edsource@edsource.org">questions about the database</a>.</p>
+                        <p>Search for one of the more than 1,000 school districts and county offices of education that administered the Smarter Balanced tests in the spring 2015. Sort through the data below by clicking on the table header. Click on the name of the school district and county offices of education to get more details from the test results. Demographic breakdowns are also on the way.</p>
+                        <p>Some school districts and county offices of education may not be on in the database before. Let us know if you find one that is missing, or if you have any <a href="mailto:edsource@edsource.org">questions about the database</a>.</p>
                     </div>         
                 </section>
 
@@ -53,10 +54,10 @@
                      <table id="sb-table" cellpadding=7>
                         <thead>
                             <th>School District</th>
-                            <th>English: Standards Met or Exceeded</th>
-                            <th>English: Standards Nearly or Not Met</th>
-                            <th>Math: Standards Met or Exceeded</th>
-                            <th>Math: Standards Nearly or Not Met</th>
+                            <th>English: Standard Met or Exceeded</th>
+                            <th>English: Standard Nearly or Not Met</th>
+                            <th>Math: Standard Met or Exceeded</th>
+                            <th>Math: Standard Nearly or Not Met</th>
                         </thead>
                         {% for d in data %}
                         {% if d.check_all %}
@@ -128,7 +129,7 @@
             jQuery(document).ready(function(){
                 /* ADD SHARE BUTTONS
                 ==============================================*/
-                var shareTwitterURL = 'http%3A%2F%2Fedsource.org%2F/smarter-balanced-results/search-school-districts.html';
+                var shareTwitterURL = 'http%3A%2F%2Fedsource.org%2Fsmarter-balanced-results/search-school-districts.html';
 
                 // build twitter button
                 var twitterButton = '<a class="twitter-share" href="https://twitter.com/share?url='+shareTwitterURL+'&via=edsource&hashtags=CommonCore"><i class="fa fa-twitter-square"></i></a>';

@@ -24,18 +24,18 @@
                 <div class="rs-site">
                     <h2><a href="http://edsource.org">EdSource</a></h2>
                 </div>
-                <div><h2><a href="/">Smarter Balanced Test Results</a></h2></div>
+                <div><h2><a href="http://edsource.org/smarter-balanced-results/index.html">Smarter Balanced Test Results</a></h2></div>
                 <div>
-                    <a href="/state.html">Compare States</a>
+                    <a href="http://edsource.org/smarter-balanced-results/state.html">Compare States</a>
                     <a href="search_school_districts.html">Search Districts</a>
-                    <a href="http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
+                    <a href="http://edsource.org/smarter-balanced-results/http://edsource.org/2015/live-blog-smarter-balanced-test-common-core/86069">Blog</a>
                 </div>
             </section>
             <div id="rs-body">                
                 <section class="overview">
                      <div><h2>{{object.entity_name}}</h2></div> 
                      <div id="rs-share"></div>
-                     <em><p>School districts, charter schools and county offices of education omit test result data that could potentially identify students due to the number of students in a grade or demographic.</p></em>
+                     <em><p>School districts and county offices of education omit test result data that could potentially identify students due to the number of students in a grade or demographic.</p></em>
                </section>
                 <!-- OVERALL PRO  -->
                 <section class="stacked over-pro-grade">
@@ -46,10 +46,10 @@
                      <table cellpadding=7>
                         <thead>
                             <th>Subject</th>                          
-                            <th>Standards Not Met</th>
-                            <th>Standards Nearly Met</th>
-                            <th>Standards Met</th>
-                            <th>Standards Exceeded</th>
+                            <th>Standard Not Met</th>
+                            <th>Standard Nearly Met</th>
+                            <th>Standard Met</th>
+                            <th>Standard Exceeded</th>
                         </thead>
                         <tr>
                             <td>English</td>
@@ -83,10 +83,10 @@
                     <table class="table-fix" cellpadding=7>
                         <thead>
                             <th>Grade</th>
-                            <th>English: Standards Not Met</th>
-                            <th>English: Standards Nearly Met</th>
-                            <th>English: Standards Met</th>
-                            <th>English: Standards Exceeded</th>
+                            <th>English: Standard Not Met</th>
+                            <th>English: Standard Nearly Met</th>
+                            <th>English: Standard Met</th>
+                            <th>English: Standard Exceeded</th>
                         </thead>
                         {% if object.check_3rd_eng %}
                          <tr>
@@ -159,10 +159,10 @@
                     <table class="table-fix" cellpadding=7>
                         <thead>
                             <th>Grade</th>
-                            <th>Math: Standards Not Met</th>
-                            <th>Math: Standards Nearly Met</th>
-                            <th>Math: Standards Met</th>
-                            <th>Math: Standards Exceeded</th>
+                            <th>Math: Standard Not Met</th>
+                            <th>Math: Standard Nearly Met</th>
+                            <th>Math: Standard Met</th>
+                            <th>Math: Standard Exceeded</th>
                         </thead>
                         {% if object.check_3rd_math %}
                          <tr>
@@ -245,10 +245,10 @@
                     <table cellpadding=7>
                         <thead>
                             <th>Gender</th>
-                            <th>English: Standards Not Met</th>
-                            <th>English: Standards Nearly Met</th>
-                            <th>English: Standards Met</th>
-                            <th>English: Standards Exceeded</th>
+                            <th>English: Standard Not Met</th>
+                            <th>English: Standard Nearly Met</th>
+                            <th>English: Standard Met</th>
+                            <th>English: Standard Exceeded</th>
                         </thead>
                         <tr>
                             <td>Male</td>
@@ -269,10 +269,10 @@
                     <table cellpadding=7>
                         <thead>
                             <th>Gender</th>
-                            <th>Math: Standards Not Met</th>
-                            <th>Math: Standards Nearly Met</th>
-                            <th>Math: Standards Met</th>
-                            <th>Math: Standards Exceeded</th>
+                            <th>Math: Standard Not Met</th>
+                            <th>Math: Standard Nearly Met</th>
+                            <th>Math: Standard Met</th>
+                            <th>Math: Standard Exceeded</th>
                         </thead>
                         <tr>
                             <td>Male</td>
@@ -306,11 +306,12 @@
                     <table cellpadding=7>
                         <thead>
                             <th>Race/Ethnicity</th>
-                            <th>English: Standards Not Met</th>
-                            <th>English: Standards Nearly Met</th>
-                            <th>English: Standards Met</th>
-                            <th>English: Standards Exceeded</th>
+                            <th>English: Standard Not Met</th>
+                            <th>English: Standard Nearly Met</th>
+                            <th>English: Standard Met</th>
+                            <th>English: Standard Exceeded</th>
                         </thead>
+                        {% if object.check_white %}
                         <tr>
                             <td>White</td>
                             <td>{{((object.white_eng_lvl1|float * 100))}}%</td>
@@ -318,6 +319,8 @@
                             <td>{{((object.white_eng_lvl3|float * 100))}}%</td>
                             <td>{{((object.white_eng_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_hisp %}
                         <tr>
                             <td>Hispanic</td>
                             <td>{{((object.hisp_eng_lvl1|float * 100))}}%</td>
@@ -325,6 +328,8 @@
                             <td>{{((object.hisp_eng_lvl3|float * 100))}}%</td>
                             <td>{{((object.hisp_eng_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_black %}
                          <tr>
                             <td>African-American</td>
                             <td>{{((object.black_eng_lvl1|float * 100))}}%</td>
@@ -332,6 +337,8 @@
                             <td>{{((object.black_eng_lvl3|float * 100))}}%</td>
                             <td>{{((object.black_eng_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_asian %}
                          <tr>
                             <td>Asian</td>
                             <td>{{((object.asian_eng_lvl1|float * 100))}}%</td>
@@ -339,30 +346,45 @@
                             <td>{{((object.asian_eng_lvl3|float * 100))}}%</td>
                             <td>{{((object.asian_eng_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_pi %}
                          <tr>
-                            <td>Other Race</td>
-                            <td>{{((object.otherrace_eng_lvl1|float * 100))}}%</td>
-                            <td>{{((object.otherrace_eng_lvl2|float * 100))}}%</td>
-                            <td>{{((object.otherrace_eng_lvl3|float * 100))}}%</td>
-                            <td>{{((object.otherrace_eng_lvl4|float * 100))}}%</td>
+                            <td>Pacific Islander</td>
+                            <td>{{((object.pi_eng_lvl1|float * 100))}}%</td>
+                            <td>{{((object.pi_eng_lvl2|float * 100))}}%</td>
+                            <td>{{((object.pi_eng_lvl3|float * 100))}}%</td>
+                            <td>{{((object.pi_eng_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_filipino %}
                          <tr>
-                            <td>Two or More Races</td>
-                            <td>{{((object.tworace_eng_lvl1|float * 100))}}%</td>
-                            <td>{{((object.tworace_eng_lvl2|float * 100))}}%</td>
-                            <td>{{((object.tworace_eng_lvl3|float * 100))}}%</td>
-                            <td>{{((object.tworace_eng_lvl4|float * 100))}}%</td>
+                            <td>Filipino</td>
+                            <td>{{((object.filipino_eng_lvl1|float * 100))}}%</td>
+                            <td>{{((object.filipino_eng_lvl2|float * 100))}}%</td>
+                            <td>{{((object.filipino_eng_lvl3|float * 100))}}%</td>
+                            <td>{{((object.filipino_eng_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_aian %}
+                         <tr>
+                            <td>American Indian and Alaskan Native</td>
+                            <td>{{((object.aian_eng_lvl1|float * 100))}}%</td>
+                            <td>{{((object.aian_eng_lvl2|float * 100))}}%</td>
+                            <td>{{((object.aian_eng_lvl3|float * 100))}}%</td>
+                            <td>{{((object.aian_eng_lvl4|float * 100))}}%</td>
+                        </tr>
+                        {% endif %}
                     </table>
                     <div id="stacked-chart-5" class="stacked-per-column"></div>
                     <table cellpadding=7>
                         <thead>
                             <th>Race/Ethnicity</th>
-                            <th>Math: Standards Not Met</th>
-                            <th>Math: Standards Nearly Met</th>
-                            <th>Math: Standards Met</th>
-                            <th>Math: Standards Exceeded</th>
+                            <th>Math: Standard Not Met</th>
+                            <th>Math: Standard Nearly Met</th>
+                            <th>Math: Standard Met</th>
+                            <th>Math: Standard Exceeded</th>
                         </thead>
+                        {% if object.check_white %}
                         <tr>
                             <td>White</td>
                             <td>{{((object.white_math_lvl1|float * 100))}}%</td>
@@ -370,6 +392,8 @@
                             <td>{{((object.white_math_lvl3|float * 100))}}%</td>
                             <td>{{((object.white_math_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_hisp %}
                         <tr>
                             <td>Hispanic</td>
                             <td>{{((object.hisp_math_lvl1|float * 100))}}%</td>
@@ -377,6 +401,8 @@
                             <td>{{((object.hisp_math_lvl3|float * 100))}}%</td>
                             <td>{{((object.hisp_math_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_black %}
                          <tr>
                             <td>African-American</td>
                             <td>{{((object.black_math_lvl1|float * 100))}}%</td>
@@ -384,6 +410,8 @@
                             <td>{{((object.black_math_lvl3|float * 100))}}%</td>
                             <td>{{((object.black_math_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_asian %}
                          <tr>
                             <td>Asian</td>
                             <td>{{((object.asian_math_lvl1|float * 100))}}%</td>
@@ -391,24 +419,106 @@
                             <td>{{((object.asian_math_lvl3|float * 100))}}%</td>
                             <td>{{((object.asian_math_lvl4|float * 100))}}%</td>
                         </tr>
-                         <tr>
-                            <td>Other Race</td>
-                            <td>{{((object.otherrace_math_lvl1|float * 100))}}%</td>
-                            <td>{{((object.otherrace_math_lvl2|float * 100))}}%</td>
-                            <td>{{((object.otherrace_math_lvl3|float * 100))}}%</td>
-                            <td>{{((object.otherrace_math_lvl4|float * 100))}}%</td>
+                        {% endif %}
+                        {% if object.check_pi %}
+                        <tr>
+                            <td>Pacific Islander</td>
+                            <td>{{((object.pi_math_lvl1|float * 100))}}%</td>
+                            <td>{{((object.pi_math_lvl2|float * 100))}}%</td>
+                            <td>{{((object.pi_math_lvl3|float * 100))}}%</td>
+                            <td>{{((object.pi_math_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_filipino %}
                          <tr>
-                            <td>Two or More Races</td>
-                            <td>{{((object.tworace_math_lvl1|float * 100))}}%</td>
-                            <td>{{((object.tworace_math_lvl2|float * 100))}}%</td>
-                            <td>{{((object.tworace_math_lvl3|float * 100))}}%</td>
-                            <td>{{((object.tworace_math_lvl4|float * 100))}}%</td>
+                            <td>Filipino</td>
+                            <td>{{((object.filipino_math_lvl1|float * 100))}}%</td>
+                            <td>{{((object.filipino_math_lvl2|float * 100))}}%</td>
+                            <td>{{((object.filipino_math_lvl3|float * 100))}}%</td>
+                            <td>{{((object.filipino_math_lvl4|float * 100))}}%</td>
                         </tr>
+                        {% endif %}
+                        {% if object.check_aian %}
+                         <tr>
+                            <td>American Indian and Alaskan Native</td>
+                            <td>{{((object.aian_math_lvl1|float * 100))}}%</td>
+                            <td>{{((object.aian_math_lvl2|float * 100))}}%</td>
+                            <td>{{((object.aian_math_lvl3|float * 100))}}%</td>
+                            <td>{{((object.aian_math_lvl4|float * 100))}}%</td>
+                        </tr>
+                        {% endif %}
                     </table>
                      <script type="text/javascript">
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-4', 510,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 3, true);
                         stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-5', 510,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 4, false);
+                    </script>
+                </section>
+                {% endif %}
+                {% if object.check_needs %}
+                <hr>
+                <section class="stacked over-pro-race">
+                     <div>
+                        <h3>Overall Test Results by High-Needs Status</h3>                 
+                    </div>
+                    <div id="stacked-chart-8" class="stacked-per-column"></div>
+                    <table cellpadding=7>
+                        <thead>
+                            <th>Status</th>
+                            <th>English: Standard Not Met</th>
+                            <th>English: Standard Nearly Met</th>
+                            <th>English: Standard Met</th>
+                            <th>English: Standard Exceeded</th>
+                        </thead>
+                        {% if object.check_ed %}
+                        <tr>
+                            <td>Economically Disadvantaged</td>
+                            <td>{{((object.ed_eng_lvl_1|float * 100))}}%</td>
+                            <td>{{((object.ed_eng_lvl_2|float * 100))}}%</td>
+                            <td>{{((object.ed_eng_lvl_3|float * 100))}}%</td>
+                            <td>{{((object.ed_eng_lvl_4|float * 100))}}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.check_el%}
+                        <tr>
+                            <td>English Learner</td>
+                            <td>{{((object.el_eng_lvl1|float * 100))}}%</td>
+                            <td>{{((object.el_eng_lvl2|float * 100))}}%</td>
+                            <td>{{((object.el_eng_lvl3|float * 100))}}%</td>
+                            <td>{{((object.el_eng_lvl4|float * 100))}}%</td>
+                        </tr>
+                        {% endif %}
+                    </table>
+                    <div id="stacked-chart-9" class="stacked-per-column"></div>
+                    <table cellpadding=7>
+                        <thead>
+                            <th>Status</th>
+                            <th>English: Standard Not Met</th>
+                            <th>English: Standard Nearly Met</th>
+                            <th>English: Standard Met</th>
+                            <th>English: Standard Exceeded</th>
+                        </thead>
+                        {% if object.check_ed %}
+                        <tr>
+                            <td>Economically Disadvantaged</td>
+                            <td>{{((object.ed_math_lvl_1|float * 100))}}%</td>
+                            <td>{{((object.ed_math_lvl_2|float * 100))}}%</td>
+                            <td>{{((object.ed_math_lvl_3|float * 100))}}%</td>
+                            <td>{{((object.ed_math_lvl_4|float * 100))}}%</td>
+                        </tr>
+                        {% endif %}
+                        {% if object.check_el %}
+                        <tr>
+                            <td>English Learner</td>
+                            <td>{{((object.el_math_lvl1|float * 100))}}%</td>
+                            <td>{{((object.el_math_lvl2|float * 100))}}%</td>
+                            <td>{{((object.el_math_lvl3|float * 100))}}%</td>
+                            <td>{{((object.el_math_lvl4|float * 100))}}%</td>
+                        </tr>
+                        {% endif %}
+                    </table>
+                     <script type="text/javascript">
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-8', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', null, {{ data|safe }}, 7, true);
+                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/data.csv', 'stacked-chart-9', 500,300, [50,100,30,40], colorbrewer['BuPu'], 4, false, null, null, '.0%', 10, .1, null, 'Math Results', null, {{ data|safe }}, 8, false);
                     </script>
                 </section>
                 {% endif %}
@@ -427,7 +537,7 @@
             jQuery(document).ready(function(){
                 /* ADD SHARE BUTTONS
                 ==============================================*/
-                var shareTwitterURL = 'http%3A%2F%2Fedsource.org%2F/smarter-balanced-results/{{object.entity_slug}}.html';
+                var shareTwitterURL = 'http%3A%2F%2edsource.org%2Fsmarter-balanced-results/{{object.entity_slug}}.html';
 
                 // build twitter button
                 var twitterButton = '<a class="twitter-share" href="https://twitter.com/share?url='+shareTwitterURL+'&via=edsource&hashtags=CommonCore"><i class="fa fa-twitter-square"></i></a>';
