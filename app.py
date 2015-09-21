@@ -30,11 +30,39 @@ def index():
 	raw_data = get_csv('./static/data.csv')
 	return render_template(template, home=raw_data[0], data=json.dumps(raw_data[0]))
 
+## DETAIL PAGE ##
+def detail(entity_slug):
+	template = 'detail.html'
+	raw_data = get_csv('./static/data.csv')
+	for row in raw_data:
+		if row['entity_slug'] == entity_slug:
+			return render_template(template, object=row, data=json.dumps(row))
+	abort(404)
+app.add_url_rule('/<entity_slug>.html','detail', detail)
+
+
+## CHARTER PAGE ##
+def charter(slug):
+	template = 'charter.html'
+	raw_data = get_csv('./static/charter.csv')
+	for row in raw_data:
+		if row['slug'] == slug:
+			return render_template(template, object=row, data=json.dumps(row))
+	abort(404)
+app.add_url_rule('/charters/<slug>.html','charter', charter)
+
 ## SEARCH PAGE ##
 @app.route('/search_school_districts.html')
 def search():
 	template = 'search.html'
 	raw_data = get_csv('./static/data.csv')
+	return render_template(template, data=raw_data)
+
+## CHARTER SEARCH PAGE ##
+@app.route('/charters/search_charter_schools.html')
+def charter_search():
+	template = 'search_charter_schools.html'
+	raw_data = get_csv('./static/charter.csv')
 	return render_template(template, data=raw_data)
 
 ## STATE PAGE ##
@@ -44,16 +72,9 @@ def state():
 	raw_data = get_csv('./static/state.csv')
 	return render_template(template, data=raw_data)
 
-## DETAIL PAGE ##
-@app.route('/<entity_slug>.html')
-def detail(entity_slug):
-	template = 'detail.html'
-	raw_data = get_csv('./static/data.csv')
-	for row in raw_data:
-		if row['entity_slug'] == entity_slug:
-			return render_template(template, object=row, data=json.dumps(row))
-	abort(404)
+
 
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)
+
