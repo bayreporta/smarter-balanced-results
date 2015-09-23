@@ -221,7 +221,7 @@
                 /* FIX FLOAT ISSUE (SHORT TERM)
                 ==============================================*/
                 var cells = jQuery('td');
-                console.log(cells)
+                
                 for (var i = 0 ; i < cells.length ; i++){
                     cells[i].textContent = cells[i].textContent.replace('.0', '');                    
                 }
@@ -229,7 +229,7 @@
 
                 /* ADD SHARE BUTTONS
                 ==============================================*/
-                var shareTwitterURL = 'http%3A%2F%2edsource.org%2Fsmarter-balanced-results/{{object.slug}}.html';
+                var shareTwitterURL = 'http%3A%2F%2Fedsource.org%2Fsmarter-balanced-results/{{object.slug}}.html';
 
                 // build twitter button
                 var twitterButton = '<a class="twitter-share" href="https://twitter.com/share?url='+shareTwitterURL+'&via=edsource&hashtags=CommonCore"><i class="fa fa-twitter-square"></i></a>';

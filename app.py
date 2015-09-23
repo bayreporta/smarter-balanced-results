@@ -28,7 +28,9 @@ def get_csv(path):
 def index():
 	template = 'index.html'
 	raw_data = get_csv('./static/data.csv')
-	return render_template(template, home=raw_data[0], data=json.dumps(raw_data[0]))
+	top10eng = get_csv('./static/top10eng.csv')
+	low10eng = get_csv('./static/low10eng.csv')
+	return render_template(template, home=raw_data[0], data=json.dumps(raw_data[0]), top10eng=top10eng, top10engD=json.dumps(top10eng), low10eng=low10eng, low10engD=json.dumps(low10eng))
 
 ## DETAIL PAGE ##
 def detail(entity_slug):

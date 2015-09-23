@@ -12,8 +12,8 @@
                      <div><h2>Search Charter Schools</h2></div>   
                      <div id="rs-share"></div>
                      <div>
-                        <p>Search for one of the more than 1,000 charter schools that administered the Smarter Balanced tests in the spring 2015. Click on the name of the charter school to get more details from the test results. <strong> Sort through the data below by clicking on the table header.</strong></p>
-                        <p>Some charter schools may not be in the database. Let us know if you find one that is missing, or if you have any <a href="mailto:edsource@edsource.org">questions about the database</a>.</p>
+                        <p>Search for one of the more than 1,000 charter schools that administered the Smarter Balanced tests in spring 2015. Click on the name of the charter school to get more details from the test results. <strong> Sort through the data below by clicking on the table header.</strong></p>
+                        <p>Some charter schools may not be in the database. Charter schools where 10 or fewer students had valid test scores for either English Language Arts or Math may be omitted from this list. Schools with blank values had no data available. Let us know if you find one that is missing, or if you have any <a href="mailto:edsource@edsource.org">questions about the database</a>.</p>
                     </div>         
                 </section>
 
@@ -39,10 +39,20 @@
                         {% if d.check_all %}
                         <tr>
                             <td><a href="{{d.slug}}.html">{{d.schoolname}}</a></td>
+                            {% if d.check_all_eng %}
                             <td>{{(d.pctstandardmetandabove_Eng_tot|float*100)}}%</td>
                             <td>{{(100 - (d.pctstandardmetandabove_Eng_tot|float*100))}}%</td>
+                            {% else %}
+                            <td></td>
+                            <td></td>
+                            {% endif %}
+                            {% if d.check_all_math %}
                             <td>{{(d.pctstandardmetandabove__Math_tot|float*100)}}%</td>
                             <td>{{(100 - (d.pctstandardmetandabove__Math_tot|float*100))}}%</td>
+                            {% else %}
+                            <td></td>
+                            <td></td>                       
+                            {% endif %}
                         </tr>
                         {% endif %}
                         {% endfor %}
@@ -99,14 +109,14 @@
                  /* FIX FLOAT ISSUE (SHORT TERM)
                 ==============================================*/
                 var cells = jQuery('td');
-                console.log(cells)
+                
                 for (var i = 0 ; i < cells.length ; i++){
                     cells[i].innerHTML = cells[i].innerHTML.replace('.0', '');                    
                 }
                 
                 /* ADD SHARE BUTTONS
                 ==============================================*/
-                var shareTwitterURL = 'http%3A%2F%2Fedsource.org%2Fsmarter-balanced-results/search_school_districts.html';
+                var shareTwitterURL = 'http%3A%2F%2Fedsource.org%2Fsmarter-balanced-results/search_charter_schools.html';
 
                 // build twitter button
                 var twitterButton = '<a class="twitter-share" href="https://twitter.com/share?url='+shareTwitterURL+'&via=edsource&hashtags=CommonCore"><i class="fa fa-twitter-square"></i></a>';
