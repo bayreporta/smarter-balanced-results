@@ -104,6 +104,17 @@
         <script type="text/javascript">
 
             jQuery(document).ready(function(){
+
+                 /* PRE-FILTER
+                ==============================================*/
+                var grabURL = window.location.href;
+                grabURL = grabURL.split('#');
+
+                if (grabURL[1]){
+                    jQuery('#pretty-table-search').val(grabURL[1]);
+                    jQuery('#execute-search').click();
+                }
+                
                  /* FIX FLOAT ISSUE (SHORT TERM)
                 ==============================================*/
                 var cells = jQuery('td');
