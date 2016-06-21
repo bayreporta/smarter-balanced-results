@@ -22,32 +22,6 @@
                         <p>To view test results from individual districts, click the "Search Districts" option at the top of this page.</p>
                     </div>       
                 </section>
-                <!--<section class="overview home">
-                    <div>
-                        <h3>Top 10 Scoring School Districts</h3>
-                    </div>
-                    <div id="stacked-chart-a" class="stacked-per-column" style="width:700px;"></div>
-                    <table cellpadding=7>
-                        <thead>
-                            <th>School District</th>
-                            <th>English: Standard Met or Exceeded</th>
-                            <th>English: Standard Nearly Met</th>
-                            <th>English: Standard Not Met</th>
-                            
-                        </thead>
-                        {% for d in top10eng %}
-                        <tr>
-                            <td><a href="{{d.entity_slug}}.html">{{d.entity_name}}</a></td>
-                            <td>{{((d.pct_standard_met_or_exceeded_eng|float * 100))}}%</td>
-                            <td>{{((d.pct_standard_nearly_met_eng|float * 100))}}%</td>
-                            <td>{{((d.pct_standard_not_met_eng|float * 100))}}%</td>
-                        </tr>
-                       {% endfor %}
-                    </table>
-                     <script type="text/javascript">
-                        stackedColumnChart.getAttr(stackedColumnChart.vars, '../static/top10eng.csv', 'stacked-chart-a', 700,300, [50,100,30,40], colorbrewer['BuPu'], 3, false, null, null, '.0%', 10, .1, null, 'English Language Arts Results', 'School districts where less than 500 students tested are omitted.', {{ top10engD|safe }}, 100, true);
-                    </script>
-                </section>-->
                 <section class="overview">
                      <div><h2>{{home.entity_name}}</h2></div> 
                     <p style="text-align:center;">Data may not round up to 100% due to rounding.</p>

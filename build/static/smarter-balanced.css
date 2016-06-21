@@ -1,0 +1,98 @@
+body, html {margin:0;padding:0;width:100%;}
+#rs-contain h2 {font-family:'Montserrat', san-serif;margin:0;padding:0;}
+#rs-contain hr {width: 96%;border: 2px solid #aaa;}
+#rs-contain p, #rs-contain li, #rs-contain span {font-family: 'Crimson Text', serif;}
+#rs-contain li {margin: 5px 0 5px 20px;}
+#rs-contain a {text-decoration: none;color:#333;}
+
+#rs-contain {overflow:hidden;width:100%;}
+#rs-header {width:100%;background:#333;height:6%;margin: 0;padding:0;position:fixed;z-index:100;}
+	.rs-site {overflow:hidden;float:left;}
+	#rs-header h2 {font-weight:400;text-transform: uppercase; font-size:125%;margin: 10px 20px;}
+	#rs-contain .rs-site a {color:#fff;}
+	.rs-site a:hover {color:#eee;}
+
+	#rs-header>div:nth-of-type(2) {float:none;}
+	#rs-header>div:nth-of-type(2) h2 {font-size:100%;margin:13px 0 0 0;}
+	#rs-header>div:nth-of-type(2) a {color:#b3cde3;}
+	#rs-header>div:nth-of-type(2) a:hover {color:#edf8fb;}
+
+	#rs-header>div:last-of-type {float:right;display:none;}
+	#rs-header>div:last-of-type a {font-family:'Montserrat', san-serif;color:#fff;text-transform: uppercase;font-size: .9em;position: relative;margin: 0 10px;top:14px;}
+	#rs-header>div:last-of-type a:hover {color:#b3cde3;}
+
+#rs-body {width:96%;margin:80px 2% 50px 2%;}
+	#rs-body hr {width: 96%;border: 1px dashed #ddd;margin:70px 0;}
+	#rs-body p, #rs-content span, #rs-content li {font-size:1.2em;line-height:1.8em;}
+	#rs-body a {color:#88419d;}
+	#rs-body a:hover {text-decoration:underline;}
+	#rs-body h1 {text-align: center;font-size: 2.1em;font-family:'Montserrat', san-serif;}
+	#rs-body h2 {text-align: center;font-size: 2em;text-transform: uppercase;}
+	#rs-body h3 {text-transform: uppercase;color:#333;font-size: 1.2em;font-weight: 700;font-family:'Montserrat', san-serif;text-align:center;margin:30px 0;}
+
+	#rs-footer {padding: 20px 0;border-top:1px #333 solid;}
+		#rs-footer h2 {text-align: center;}
+		#rs-footer h2 a {color:#333;}
+
+		#rs-footer>div {margin: 10px auto;max-width: 465px;}
+		#rs-footer>div a {margin-right: 6%;font-family: 'Montserrat', san-serif;color:#88419d;}
+		#rs-footer a:hover {text-decoration: underline;}
+
+#rs-contain table {width: 100%;border-collapse: collapse;margin:60px 0;}
+#rs-contain td {font-family: 'Crimson Text', serif;text-align: center;}
+#rs-contain th {font-family:'Montserrat', san-serif;}
+#rs-contain td:first-of-type {text-align:left;}
+#rs-contain tr {}
+#rs-contain thead {}
+#rs-contain thead tr {height:50px;border-bottom:1px solid #aaa;border-top:1px solid #aaa;cursor:pointer;}
+
+#rs-contain #sb-table th {cursor: pointer;}
+#rs-contain #sb-table tr:nth-of-type(5n+5) {border-bottom:1px #ddd solid;}
+
+#rs-contain #demo-table {width:100%;margin: 30px auto;}
+#rs-contain #demo-table thead th {display:none;}
+#rs-contain #demo-table td {font-size:1.3em;text-align: left;font-family: 'Montserrat', san-serif;font-weight:700;}
+
+.table-fix th {width:1px;}
+
+.overview.home {padding: 0 0 20px 0;border-bottom: 2px solid #aaa;margin: 0 0 20px 0;}
+
+.stacked-per-column {width:530px;margin:0 auto;}
+
+/* SEARCH STYLES */
+#rs-contain #pretty-table-search {height:20px;width:30%;border:1px solid #ccc; float:left;max-width:300px;margin:-3px 0 0 0 !important;}
+#rs-contain #pretty-table-search-options {margin:0 0 20px 0 !important;}
+#rs-contain #pretty-table-search-options .pretty-table-button:hover {background:#aaa;}
+#rs-contain #pretty-table-search-options div:first-of-type {float:left;}
+#rs-contain #execute-search, #rs-contain #reset-search {margin:0 0 0 20px !important;padding:5px;border-radius: 0;}
+#rs-contain .pretty-table-button {padding: 8px;display: inline;background: #ddd;color: #333;cursor: pointer;margin: 0 10px 0 0;font-size: .8em;border-radius: 5px;}
+#pretty-table-top {position:fixed;bottom:0;right:0;width:40px;height:40px;background:#b3cde3;cursor:pointer;padding-left:10px;}
+#pretty-table-top i {color:#fff;font-size: 2em;}	
+
+
+/* SHARE BUTTONS */
+#rs-contain #rs-share {width:30px;margin:15px auto;}
+#rs-contain .twitter-share {font-size:1.6em;margin-right:10px;}
+#rs-contain .twitter-share {}
+.fa {display: inline-block;font-family: FontAwesome;font-style: normal;font-weight: normal;line-height: 1; -webkit-font-smoothing: antialiased;}
+
+.s_c_p .tick text {font-size: .6em !important;}
+
+@media screen and (min-width:768px){
+	#rs-logo {display:block;}
+	#rs-contain #demo-table {width:50%;}
+	#rs-body {width:60%;margin:80px auto 50px auto;}
+
+	#rs-header {height:50px;}
+	#rs-header>div:nth-of-type(2) {float:left;}
+
+}
+
+@media screen and (min-width:1028px){
+	#rs-header>div:last-of-type {display:block;}
+}
+
+
+
+
+
